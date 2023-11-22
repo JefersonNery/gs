@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Colors} from '../shared/DesignTokens'
+import {Colors} from '../shared/DesignTokens';
 import EmergenciaButton from '../common-components/emergenciaButton/EmergenciaButton';
+import FormPaciente from './FormPaciente'
 
 // CONTAINER PARA DIMENCIONAR O CONTEUDO
 const DivContainer = styled.div`
@@ -117,10 +118,14 @@ function Home () {
                 <PacienteINFO>Medicação Oral no Local - Paracetamol + <br></br> Medicação para casa - Dipirona 500mg a cada 8h por 3 dias</PacienteINFO>
             </Detalhes>
 
+            <H3>Informe como esta o pós consulta</H3>
+
+            <FormPaciente/>
 
             <H5>Em caso de piora, recomendamos retornar ao posto de Saúde, em caso extremo, acione a emergencia no botão a baixo.</H5>
 
             <EmergenciaButton/>
+
         </DivContainer>
     );
     
