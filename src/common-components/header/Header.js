@@ -4,7 +4,7 @@ import Nav from '../nav/Nav';
 
 const Head = styled.header`
     height: 12vh;
-    background-color: ${Colors.RED_800};
+    background-color: ${Colors.NEUTRAL_PURPLE};
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

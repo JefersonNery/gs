@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Colors} from '../shared/DesignTokens';
 
 function FormularioPaciente() {
   const [form, setForm] = useState({
@@ -23,19 +24,19 @@ function FormularioPaciente() {
   };
 
   const estilo = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
+    width:'94%',
+    margin:'auto',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     gap: '10px',
-    backgroundColor: '#f5f5f5',
-    fontFamily: 'Arial, sans-serif'
+    fontFamily: 'Arial, sans-serif',
+    padding: '10px',
   };
 
   const paragrafoEstilo = {
     fontWeight: 'bold',
-    color: '#333'
+    color: '#333',
+    marginBottom: '5px'
   };
 
   const inputEstilo = {
@@ -49,75 +50,96 @@ function FormularioPaciente() {
   const botaoEstilo = {
     ...inputEstilo,
     width: '100px', 
+    height:'40px',
     backgroundColor: '#4CAF50',
     color: 'white',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    justifySelf: 'center',
+    margin:'75px'
+
   };
   const textareaEstilo = {
     ...inputEstilo,
-    height: '100px', 
-    width:'400px',
+    height: '80px', 
+    width:'90%',
     resize: 'vertical'
   };
 
+  const secaoEstilo = {
+    backgroundColor: '#fff',
+    padding: '10px',
+    
+    borderRadius: '5px',
+    boxShadow: '0 0 10px rgba(0,0,0,0.15)',
+    marginBottom: '10px'
+  };
   
   return (
     <form onSubmit={handleSubmit} style={estilo}>
-      <p style={paragrafoEstilo}>Como você está se sentindo desde a última consulta? *</p>
-      <label>
-        <input type="radio" name="sentimento" value="mau" onChange={handleChange} required style={inputEstilo} />
-        Mau
-      </label>
+      <div style={secaoEstilo}>
+        <p style={paragrafoEstilo}>Como você está se sentindo desde a última consulta? *</p>
+        <label>
+          <input type="radio" name="sentimento" value="mau" onChange={handleChange} required style={inputEstilo} />
+          Mau
+        </label>
 
-      <label>
-        <input type="radio" name="sentimento" value="bem" onChange={handleChange} style={inputEstilo} />
-        Bem
-      </label>
+        <label>
+          <input type="radio" name="sentimento" value="bem" onChange={handleChange} style={inputEstilo} />
+          Bem
+        </label>
 
-      <label>
-        <input type="radio" name="sentimento" value="otimo" onChange={handleChange} style={inputEstilo} />
-        Ótimo
-      </label>
+        <label>
+          <input type="radio" name="sentimento" value="otimo" onChange={handleChange} style={inputEstilo} />
+          Ótimo
+        </label>
+      </div>
 
-      <p style={paragrafoEstilo}>Sente alguma dor ou queixa? *</p>
-      <label>
-        <input type="radio" name="dor" value="sim" onChange={handleChange} required style={inputEstilo} />
-        Sim
-      </label>
+      <div style={secaoEstilo}>
+        <p style={paragrafoEstilo}>Sente alguma dor ou queixa? *</p>
+        <label>
+          <input type="radio" name="dor" value="sim" onChange={handleChange} required style={inputEstilo} />
+          Sim
+        </label>
 
-      <label>
-        <input type="radio" name="dor" value="nao" onChange={handleChange} style={inputEstilo} />
-        Não
-      </label>
+        <label>
+          <input type="radio" name="dor" value="nao" onChange={handleChange} style={inputEstilo} />
+          Não
+        </label>
+      </div>
 
-      <p style={paragrafoEstilo}>Alguma reação alérgica? *</p>
-      <label>
-        <input type="radio" name="alergia" value="sim" onChange={handleChange} required style={inputEstilo} />
-        Sim
-      </label>
-      
-      <label>
-        <input type="radio" name="alergia" value="nao" onChange={handleChange} style={inputEstilo} />
-        Não
-      </label>
+      <div style={secaoEstilo}>
+        <p style={paragrafoEstilo}>Alguma reação alérgica? *</p>
+        <label>
+          <input type="radio" name="alergia" value="sim" onChange={handleChange} required style={inputEstilo} />
+          Sim
+        </label>
+        
+        <label>
+          <input type="radio" name="alergia" value="nao" onChange={handleChange} style={inputEstilo} />
+          Não
+        </label>
+      </div>
 
-      <p style={paragrafoEstilo}>Sente alguma melhora pós uso da medicação prescrita? *</p>
-      <label>
-        <input type="radio" name="melhora" value="sim" onChange={handleChange} required style={inputEstilo} />
-        Sim
-      </label>
+      <div style={secaoEstilo}>
+        <p style={paragrafoEstilo}>Sente alguma melhora pós uso da medicação prescrita? *</p>
+        <label>
+          <input type="radio" name="melhora" value="sim" onChange={handleChange} required style={inputEstilo} />
+          Sim
+        </label>
 
-      <label>
-        <input type="radio" name="melhora" value="nao" onChange={handleChange} style={inputEstilo} />
-        Não
-      </label>
+        <label>
+          <input type="radio" name="melhora" value="nao" onChange={handleChange} style={inputEstilo} />
+          Não
+        </label>
+      </div>
 
-      <p style={paragrafoEstilo}>Informações adicionais:</p>
-      <label>
-        <textarea name="informacoesAdicionais" placeholder="Se necessário, escreva algo aqui." onChange={handleChange} style={textareaEstilo} />
-      </label>
+      <div style={secaoEstilo}>
+        <p style={paragrafoEstilo}>Informações adicionais:</p>
+        <label>
+          <textarea name="informacoesAdicionais" placeholder="Se necessário, escreva algo aqui." onChange={handleChange} style={textareaEstilo} />
+        </label>
+      </div>
 
-    
       <button type="submit" style={botaoEstilo}>Enviar</button>
     </form>
   );
